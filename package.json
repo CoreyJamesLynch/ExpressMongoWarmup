@@ -1,0 +1,27 @@
+{
+  "name": "expressmongowarmup",
+  "version": "1.0.0",
+  "description": "A simple app that can quickly be put together as a express/mongo refresher",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoreyJamesLynch/ExpressMongoWarmup.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Mongo",
+    "Beginner",
+    "Backend",
+    "Mongoose"
+  ],
+  "author": "Corey Lynch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoreyJamesLynch/ExpressMongoWarmup/issues"
+  },
+  "homepage": "https://github.com/CoreyJamesLynch/ExpressMongoWarmup#readme"
+}
