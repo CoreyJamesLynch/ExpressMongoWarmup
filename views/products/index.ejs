@@ -1,2 +1,19 @@
-<!-- HTML template -->
-  <!-- loop through database items and display each data from each item -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farm Store Home Page</title>
+  </head>
+  <body>
+    <h1>Welcome to the Farm Store!</h1>
+    <h3>Here are our products:</h3>
+    <% for(product of products) { %>
+    <p><b> <%= product.name %></b></p>
+    <p>Price: $<%= product.price %></p>
+    <a href="product/:id">Buy</a>
+    <hr>
+    <% } %>
+  </body>
+</html>
+<!-- loop through database items and display each data from each item -->
