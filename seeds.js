@@ -1,5 +1,42 @@
-// this file will not so this file will will not be required by or be requiring index.js because we don't want our db to be seeded each time we run index.js.
+const mongoose = require('mongoose');
+const Product = require('./models/products');
 
-// need to require mongoose and have the mongoose setup to connect to the database since we aren't getting that setup from any other required files (products model file is being required by index.js, not the other way around, so we don't have to worry about index.js spilling over into this file)
+mongoose
+  .connect('mongodb://localhost:27017/farmStore', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to the farmStore database!'))
+  .catch((err) => console.log(err));
 
-// having said that, we will need to require our model since everything going into the database is compared to the schema.
+const seedProducts = [
+  {
+    name: 'Fairy Eggplant',
+    price: 1.0,
+    category: 'vegetable',
+  },
+  {
+    name: 'Organic Goddess Melon',
+    price: 4.99,
+    category: 'fruit',
+  },
+  {
+    name: 'Organic Mini Seedless Watermelon',
+    price: 3.99,
+    category: 'fruit',
+  },
+  {
+    name: 'Organic Celery',
+    price: 1.5,
+    category: 'vegetable',
+  },
+  {
+    name: 'Chocolate Whole Milk',
+    price: 2.69,
+    category: 'dairy',
+  },
+];
+
+Product.insertMany(seedProducts)
+  .then((p) => console.log(p))
+  .catch((err) => console.log(err));
