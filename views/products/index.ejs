@@ -7,13 +7,20 @@
   </head>
   <body>
     <h1>Welcome to the Farm Store!</h1>
+
     <h3>Here are our products:</h3>
+
     <% for(product of products) { %>
+
     <p><b> <%= product.name %></b></p>
+
     <p>Price: $<%= product.price %></p>
+
     <a href="product/:id">Buy</a>
-    <hr>
+
+    <hr />
     <% } %>
+
+    <a href="product/new">Add Item to Menu</a>
   </body>
 </html>
-<!-- loop through database items and display each data from each item -->
