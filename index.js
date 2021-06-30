@@ -8,6 +8,14 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+// GET products/index -> URL /products -> Show all products
+// GET products/show -> URL /products/:id -> Show one product
+// GET products/new -> URL /products/new -> New product form POST
+// POST redirect to URL /products
+// GET products/edit -> URL /products/edit/:id -> Edit product form PATCH
+// PATCH redirect to URL /products
+// DELETE redirect to URL /products
+
 mongoose
   .connect('mongodb://localhost:27017/farmStore', {
     useNewUrlParser: true,
