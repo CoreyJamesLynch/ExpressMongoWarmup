@@ -3,6 +3,7 @@ const app = express();
 const port = 3001;
 const mongoose = require('mongoose');
 const db = mongoose.connection;
+const Product = require('./models/products');
 
 app.get('/', (req, res) => {
   res.send('Hello World');
