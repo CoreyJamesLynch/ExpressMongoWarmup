@@ -1,12 +1,18 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 const port = 3001;
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 const Product = require('./models/products');
 const ejs = require('ejs');
+const path = require('path');
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 // GET products/new -> URL /products/new -> New product form POST
 app.get('/products/new', (req, res) => {
@@ -14,6 +20,12 @@ app.get('/products/new', (req, res) => {
 });
 
 // POST redirect to URL /products
+app.post('/products', (req, res) => {
+  const newProduct = new Product(req.body);
+  console.log('post request');
+  console.log(newProduct);
+  res.redirect('/products');
+});
 
 // GET products/show -> URL /products/:id -> Show one product
 app.get('/products/:id', async (req, res) => {
