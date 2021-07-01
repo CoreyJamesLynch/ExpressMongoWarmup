@@ -1,3 +1,27 @@
-<!-- HTML template -->
-  <!-- display data from a specific item -->
-  <!-- have a button within a form to delete action=/products/:id?_method=delete method=post -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= product.name %></title>
+  </head>
+  <body>
+    <h1><%= product.name %></h1>
+    <h2>Type: <%= product.category %></h2>
+    <h2>Price: <%= product.price %></h2>
+
+    <form action="/products/edit/:id" method="GET">
+      <button>Edit Item</button>
+    </form>
+
+    <form action="/products/:id?_method=delete" method="POST">
+      <button>Delete Item</button>
+    </form>
+
+    <br />
+
+    <div>
+      <a href="/products"> Return to Menu </a>
+    </div>
+  </body>
+</html>

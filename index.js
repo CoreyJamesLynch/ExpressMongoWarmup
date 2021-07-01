@@ -8,6 +8,12 @@ const ejs = require('ejs');
 
 app.set('view engine', 'ejs');
 
+app.get('/product/:id', async (req, res) => {
+  const id = req.params.id;
+  const product = await Product.findById(id);
+  res.render('products/show', { product });
+});
+
 app.get('/products', async (req, res) => {
   const products = await Product.find({});
   res.render('products/index', { products });
@@ -18,14 +24,13 @@ app.get('/', async (req, res) => {
   res.render('products/index', { products });
 });
 
-
 mongoose
-.connect('mongodb://localhost:27017/farmStore', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('Connected to the farmStore database!'))
-.catch((err) => console.log(err));
+  .connect('mongodb://localhost:27017/farmStore', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to the farmStore database!'))
+  .catch((err) => console.log(err));
 
 app.listen(port, () => {
   console.log(`ExpressMongoWarmup listening at http://localhost:${port}`);
