@@ -10,7 +10,7 @@
     <h2>Type: <%= product.category %></h2>
     <h2>Price: <%= product.price %></h2>
 
-    <form action="/products/edit/:id" method="GET">
+    <form action="/products/edit/<%= product.id %> " method="GET">
       <button>Edit Item</button>
     </form>
 

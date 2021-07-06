@@ -26,6 +26,13 @@ app.post('/products', async (req, res) => {
   res.redirect('/products');
 });
 
+// GET products/edit -> URL /products/edit/:id -> Edit product form PATCH
+app.get('/products/edit/:id', async (req, res) => {
+  const id = req.params.id;
+  const product = await Product.findById(id);
+  res.render('products/edit', { product });
+});
+
 // GET products/show -> URL /products/:id -> Show one product
 app.get('/products/:id', async (req, res) => {
   const id = req.params.id;
@@ -56,6 +63,5 @@ app.listen(port, () => {
   console.log(`ExpressMongoWarmup listening at http://localhost:${port}`);
 });
 
-// GET products/edit -> URL /products/edit/:id -> Edit product form PATCH
 // PATCH redirect to URL /products
 // DELETE redirect to URL /products

@@ -1,4 +1,3 @@
-<!-- html template -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,14 +7,14 @@
   </head>
   <body>
     <h1>Edit Product</h1>
-    <form action="/products/<%= products.id %>?_method=patch " method="POST">
+    <form action="/products/<%= product.id %>?_method=patch " method="POST">
       <label for="name">Product Name:</label>
       <input
         name="name"
         id="name"
         type="text"
         placeholder="product name"
-        value="<%= products.name %> "
+        value="<%= product.name %> "
       />
 
       <label for="price">Product Price:</label>
@@ -23,7 +22,7 @@
         type="number"
         name="price"
         id="price"
-        value="<%= products.price %> "
+        value="<%= product.price %>"
       />
 
       <label for="category">Select Category:</label>
@@ -37,4 +36,3 @@
     </form>
   </body>
 </html>
-<!-- Edit form action=/products/:id?_method=patch method=POST -->
