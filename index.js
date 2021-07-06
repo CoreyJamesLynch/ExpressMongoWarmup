@@ -20,10 +20,9 @@ app.get('/products/new', (req, res) => {
 });
 
 // POST redirect to URL /products
-app.post('/products', (req, res) => {
+app.post('/products', async (req, res) => {
   const newProduct = new Product(req.body);
-  console.log('post request');
-  console.log(newProduct);
+  await newProduct.save();
   res.redirect('/products');
 });
 

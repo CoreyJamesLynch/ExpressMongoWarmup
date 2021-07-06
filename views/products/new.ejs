@@ -9,24 +9,14 @@
   <body>
     <h1>Add Product</h1>
     <form action="/products" method="POST">
-      <label for="input_product_name">Product Name:</label>
-      <input
-        name="input_product_name"
-        id="input_product_name"
-        type="text"
-        placeholder="product name"
-      />
+      <label for="name">Product Name:</label>
+      <input name="name" id="name" type="text" placeholder="product name" />
 
-      <label for="input_product_quantity">Product Quantity:</label>
-      <input
-        type="number"
-        name="input_product_quantity"
-        id="input_product_quantity"
-        value="0"
-      />
+      <label for="price">Product Price:</label>
+      <input type="number" name="price" id="price" value="0" />
 
-      <label for="select_product_category">Select Category:</label>
-      <select name="select_product_category" id="select_product_category">
+      <label for="category">Select Category:</label>
+      <select name="category" id="category">
         <option value="fruit">Fruit</option>
         <option value="vegetable">Vegetable</option>
         <option value="dairy">Dairy</option>
