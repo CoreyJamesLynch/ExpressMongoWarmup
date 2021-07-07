@@ -26,13 +26,23 @@
       />
 
       <label for="category">Select Category:</label>
+      
       <select name="category" id="category">
-        <option value="fruit">Fruit</option>
-        <option value="vegetable">Vegetable</option>
-        <option value="dairy">Dairy</option>
+        <% for(let category of categories){ %>
+          <option value="<% category %>"
+            <%= category === product.category ? "selected" : "" %>
+          ><%= category %> 
+          </option>
+        <% } %>
       </select>
-
-      <button>Confirm Changes</button>
+      
+      <div>
+        <button>Confirm Changes</button>
+      </div>
+    </form>
+    
+    <form action="/products" method="GET">
+      <button>Cancel Changes</button>
     </form>
   </body>
 </html>

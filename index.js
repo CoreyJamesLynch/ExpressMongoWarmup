@@ -7,6 +7,7 @@ const db = mongoose.connection;
 const Product = require('./models/products');
 const ejs = require('ejs');
 const path = require('path');
+const categories = ["fruit", "vegetable", "dairy"]
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +31,7 @@ app.post('/products', async (req, res) => {
 app.get('/products/edit/:id', async (req, res) => {
   const id = req.params.id;
   const product = await Product.findById(id);
-  res.render('products/edit', { product });
+  res.render('products/edit', { product, categories });
 });
 
 // PUT redirect to URL /products
